@@ -2,38 +2,26 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('UserMessages', {
+    await queryInterface.createTable('PostReacts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      senderId: {
+      postId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "UserPosts",
+          id: "id"
+        }
+      },
+      userId: {
         type: Sequelize.INTEGER,
         references: {
           model: "Users",
           id: "id"
         }
-      },
-      recipientId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Users",
-          id: "id"
-        }
-      },
-      messageText: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      sendDate: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      seenDate: {
-        type: Sequelize.DATE,
-        allowNull:false
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('UserMessages');
+    await queryInterface.dropTable('PostReacts');
   }
 };

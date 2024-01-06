@@ -11,15 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      UserPost.belongsTo(models.User, { foreignKey: 'userId' });
+      UserPost.hasMany(models.PostComment, { foreignKey: 'postId' });
+      UserPost.hasMany(models.PostReact, { foreignKey: 'postId' });
     }
   }
   UserPost.init({
     postText: {
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     postTitle: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     mediaLocation: DataTypes.STRING

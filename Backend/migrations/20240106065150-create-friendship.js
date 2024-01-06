@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('UserMessages', {
+    await queryInterface.createTable('friendships', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,17 +23,9 @@ module.exports = {
           id: "id"
         }
       },
-      messageText: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      sendDate: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      seenDate: {
-        type: Sequelize.DATE,
-        allowNull:false
+      acceptStatus: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('UserMessages');
+    await queryInterface.dropTable('friendships');
   }
 };
