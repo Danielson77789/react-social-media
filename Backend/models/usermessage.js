@@ -22,17 +22,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     senderId: { 
       type: DataTypes.INTEGER,
+      allowNull: false
     },
     recipientId: {
       type: DataTypes.INTEGER,
+      allowNull: false
     },
     sendDate: {
       type: DataTypes.DATE,
       allowNull: false
     },
     seenDate: {
-      type: DataTypes.DATE,
-      allowNull: false
+      type: DataTypes.DATE
     }
   }, {
     sequelize,

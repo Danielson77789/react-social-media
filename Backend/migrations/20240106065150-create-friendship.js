@@ -11,6 +11,7 @@ module.exports = {
       },
       senderId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Users",
           id: "id"
@@ -18,6 +19,7 @@ module.exports = {
       },
       recipientId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Users",
           id: "id"

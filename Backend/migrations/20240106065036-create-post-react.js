@@ -11,6 +11,7 @@ module.exports = {
       },
       postId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "UserPosts",
           id: "id"
@@ -18,6 +19,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Users",
           id: "id"
@@ -28,7 +30,6 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE
       }
     });

@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   PostReact.init({
-    postId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    postId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'PostReact',

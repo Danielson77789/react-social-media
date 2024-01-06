@@ -25,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    userId: {
+      type: DataTypes.INTEGER,
+    },
     mediaLocation: DataTypes.STRING
   }, {
     sequelize,

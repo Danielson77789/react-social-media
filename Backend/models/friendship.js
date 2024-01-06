@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   friendship.init({
-    senderId: DataTypes.INTEGER,
-    recipientId: DataTypes.INTEGER,
+    senderId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    recipientId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     acceptStatus: DataTypes.BOOLEAN
   }, {
     sequelize,
