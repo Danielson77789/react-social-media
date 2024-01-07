@@ -16,16 +16,16 @@ router.get('/user', (req, res) => {
 });
 
 router.post('/user', (req, res) => {
-    const { fn, ln, un, em, ps, dob, at} = req.body;
+    const { firstName, lastName, username, email, password, dob, about} = req.body;
     User.create({
-        firstName: fn,
-        lastName: ln,
-        username: un,
-        email: em,
-        password: ps,
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        email: email,
+        password: password,
         dateOfBirth: dob,
         lastLogin: new Date(),
-        aboutText: at,
+        aboutText: about,
         createdAt: new Date(),
         updatedAt: new Date()
     }).then(() => {
